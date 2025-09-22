@@ -8,6 +8,8 @@ export const Login = () => {
 
     const navigate = useNavigate();
 
+    const url = import.meta.env.VITE_BACKEND_URL
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -16,7 +18,7 @@ export const Login = () => {
             "password": password
         }
 
-        const response = await fetch("https://expert-doodle-7v5q44p5pvq9hpqwx-3001.app.github.dev/api/login", {
+        const response = await fetch(`${url}/api/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -6,7 +6,9 @@ export const Register = () => {
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-
+    
+    const url = import.meta.env.VITE_BACKEND_URL
+   
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -18,7 +20,7 @@ export const Register = () => {
             "password": password
         }
 
-        await fetch("https://expert-doodle-7v5q44p5pvq9hpqwx-3001.app.github.dev/register", {
+        await fetch(url + "/api/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
