@@ -40,7 +40,7 @@ def user_login():
         return jsonify("usuario no encontrado"), 404
     
     if bcrypt.checkpw(body["password"].encode(), user.password.encode()):
-        access_token = create_access_token(identity=user.id)
+        access_token = create_access_token(identity= str (user.id))
         return jsonify({"token": access_token}), 200
 
     return jsonify("contraseña incorrecta"), 401
